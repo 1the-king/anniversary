@@ -8,8 +8,10 @@
 </head>
 <body>
 
+    <!-- Custom Hand Cursor Element -->
     <div class="custom-cursor" id="customCursor"></div>
 
+    <!-- LAYER 1: THE WELCOME -->
     <div class="screen active" id="screen1">
         <div class="card">
             <div class="icon-bounce">🐈‍⬛</div>
@@ -19,16 +21,28 @@
         </div>
     </div>
 
+    <!-- LAYER 2: THE MILESTONE (UPDATED WITH COLLAGE!) -->
     <div class="screen" id="screen2">
-        <div class="card">
-            <div class="icon-bounce">⏳</div>
-            <h1>365 Days Ago...</h1>
+        <div class="card collage-card">
+            <div class="timeline-header">
+                <div class="icon-bounce">⏳</div>
+                <h1>365 Days Ago...</h1>
+            </div>
+            
             <p>On May 28, 2025, we first crossed paths. Fast forward through all the jokes, random chats, and chaos, and here we are on May 28, 2026.</p>
+            
+            <!-- NEW COLLAGE EXHIBIT SECTION -->
+            <div class="memories-container">
+                <div class="exhibit-label">Digital Scrapbook: Exhibit A</div>
+                <img src="memories.png" alt="A Year of Memories Collage" class="collage-image">
+            </div>
+
             <div class="timeline-badge">1 Full Year of Friendship</div>
             <button class="nav-btn" onclick="nextScreen(3)">Continue the Story ➔</button>
         </div>
     </div>
 
+    <!-- LAYER 3: THE FINAL SURPRISE -->
     <div class="screen" id="screen3">
         <div class="card final-card">
             <div class="icon-bounce">💝</div>
@@ -52,14 +66,9 @@
 
         // Layer Navigation Logic
         function nextScreen(screenNum) {
-            // Hide all screens
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            
-            // Show the target screen
             const targetScreen = document.getElementById(`screen${screenNum}`);
             targetScreen.classList.add('active');
-
-            // Trigger extra celebration effect on the final screen
             if(screenNum === 3) {
                 createHearts();
             }

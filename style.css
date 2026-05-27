@@ -25,7 +25,7 @@ body {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: screen; /* Blends out the black background of your image */
+    mix-blend-mode: screen; 
     transform: translate(-15%, -35%) rotate(-10deg);
 }
 
@@ -62,6 +62,44 @@ body {
     color: #cdd6f4;
 }
 
+/* Specific styling for the card that contains the collage */
+.collage-card {
+    max-width: 500px; /* Slightly wider to hold the collage */
+    padding: 30px 20px;
+}
+
+.timeline-header {
+    margin-bottom: 10px;
+}
+
+/* COLLAGE EXHIBIT STYLING */
+.memories-container {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed rgba(137, 180, 250, 0.3);
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.exhibit-label {
+    color: #89b4fa;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.collage-image {
+    width: 100%; /* Responsive to the container width */
+    max-width: 440px; /* Prevents over-scaling */
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
 .final-card {
     border-color: rgba(245, 194, 231, 0.2);
     position: relative;
@@ -76,7 +114,7 @@ body {
 
 h1 {
     font-size: 1.9rem;
-    color: #f5c2e7; /* Pastel Rosewater/Pink accent */
+    color: #f5c2e7; 
     margin-bottom: 15px;
 }
 
@@ -84,7 +122,7 @@ p {
     font-size: 1.05rem;
     line-height: 1.6;
     color: #a6adc8;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .letter-text {
@@ -100,7 +138,7 @@ p {
     display: inline-block;
     font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 /* Aesthetic Buttons */
@@ -112,13 +150,13 @@ p {
     border-radius: 14px;
     font-size: 1rem;
     font-weight: bold;
-    cursor: none; /* Keep system mouse hidden on hover */
+    cursor: none;
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .nav-btn:hover {
     transform: scale(1.05);
-    background: #b4befe; /* Changes color smoothly on hover */
+    background: #b4befe;
 }
 
 /* Animations */
