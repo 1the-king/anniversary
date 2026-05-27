@@ -1,97 +1,138 @@
-/* Reset and smooth setups */
 * {
     margin: 0;
     padding: 0;
-    box-bezier: border-box;
+    box-sizing: border-box;
 }
 
 body {
-    background: linear-gradient(135deg, #1e1e2e, #11111b); /* Deep aesthetic dark background */
+    background: linear-gradient(135deg, #0f0f16, #181825);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* Hide the default mouse cursor across the website */
-    cursor: none; 
+    cursor: none; /* Hide default mouse */
 }
 
 /* Custom Hand Cursor */
 .custom-cursor {
-    width: 120px;  /* Slightly larger to look natural on desktop screens */
-    height: 120px;
-    background-image: url('hand.png'); 
+    width: 110px;
+    height: 110px;
+    background-image: url('hand.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: fixed;
-    pointer-events: none; 
+    pointer-events: none;
     z-index: 9999;
-    
-    /* CRITICAL: This line blends out the solid black background automatically */
-    mix-blend-mode: screen; 
-    
-    /* Tweaked alignment so the tip of the index finger is the exact click point */
-    transform: translate(-15%, -35%) rotate(-10deg); 
+    mix-blend-mode: screen; /* Blends out the black background of your image */
+    transform: translate(-15%, -35%) rotate(-10deg);
 }
 
-/* Interactive Card Design */
-.card-container {
-    perspective: 1000px;
+/* Layer & Screen Control */
+.screen {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+/* Styling the Containers */
 .card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 45px 35px;
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
     text-align: center;
-    max-width: 400px;
+    max-width: 420px;
     color: #cdd6f4;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Subtle hover effect when her hand hovers over her card */
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(137, 180, 250, 0.15);
-    border-color: rgba(137, 180, 250, 0.3);
+.final-card {
+    border-color: rgba(245, 194, 231, 0.2);
+    position: relative;
 }
 
-.cat-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    animation: bounce 2s infinite ease-in-out;
+/* Decorative items */
+.icon-bounce {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: floating 2.5s infinite ease-in-out;
 }
 
 h1 {
-    font-size: 1.8rem;
-    color: #f5c2e7; /* Soft pink accent */
+    font-size: 1.9rem;
+    color: #f5c2e7; /* Pastel Rosewater/Pink accent */
     margin-bottom: 15px;
 }
 
 p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     color: #a6adc8;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-.date {
-    font-size: 0.8rem;
-    color: #6c7086;
-    letter-spacing: 1px;
+.letter-text {
+    text-align: left;
+    font-style: italic;
 }
 
-/* Smooth Bouncing Animation for the cat icon */
-@keyframes bounce {
+.timeline-badge {
+    background: rgba(137, 180, 250, 0.15);
+    color: #89b4fa;
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Aesthetic Buttons */
+.nav-btn {
+    background: #f5c2e7;
+    color: #11111b;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: none; /* Keep system mouse hidden on hover */
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+    background: #b4befe; /* Changes color smoothly on hover */
+}
+
+/* Animations */
+@keyframes floating {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
 }
 
-/* Ensure links/buttons still show custom cursor correctly */
-a, button {
-    cursor: none;
+.floating-hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    color: rgba(245, 194, 231, 0.4);
 }
