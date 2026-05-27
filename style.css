@@ -1,0 +1,97 @@
+/* Reset and smooth setups */
+* {
+    margin: 0;
+    padding: 0;
+    box-bezier: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2e, #11111b); /* Deep aesthetic dark background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Hide the default mouse cursor across the website */
+    cursor: none; 
+}
+
+/* Custom Hand Cursor */
+.custom-cursor {
+    width: 120px;  /* Slightly larger to look natural on desktop screens */
+    height: 120px;
+    background-image: url('hand.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    pointer-events: none; 
+    z-index: 9999;
+    
+    /* CRITICAL: This line blends out the solid black background automatically */
+    mix-blend-mode: screen; 
+    
+    /* Tweaked alignment so the tip of the index finger is the exact click point */
+    transform: translate(-15%, -35%) rotate(-10deg); 
+}
+
+/* Interactive Card Design */
+.card-container {
+    perspective: 1000px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    color: #cdd6f4;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle hover effect when her hand hovers over her card */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(137, 180, 250, 0.15);
+    border-color: rgba(137, 180, 250, 0.3);
+}
+
+.cat-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #f5c2e7; /* Soft pink accent */
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #a6adc8;
+    margin-bottom: 25px;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #6c7086;
+    letter-spacing: 1px;
+}
+
+/* Smooth Bouncing Animation for the cat icon */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Ensure links/buttons still show custom cursor correctly */
+a, button {
+    cursor: none;
+}

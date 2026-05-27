@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 1 Year!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="cat-icon">🐈‍⬛</div> <h1>Happy 1 Year of Us! ✨</h1>
+            <p class="reveal-text">
+                I can't believe it's already been a whole year since we first met. 
+                Thank you for being the absolute best friend anyone could ask for. 
+                Move your mouse around—yes, that's literally your hand pointing at how awesome you are! 🫵❤️
+            </p>
+            <div class="date">May 28, 2025 - May 28, 2026</div>
+        </div>
+    </div>
+
+    <script>
+        // Smoothly updates the position of the custom hand cursor
+        const cursor = document.getElementById('customCursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            // Adjust the offsets (-10, -30) so the tip of the index finger is the actual click point
+            cursor.style.left = (e.clientX - 10) + 'px';
+            cursor.style.top = (e.clientY - 30) + 'px';
+        });
+    </script>
+</body>
+</html>
