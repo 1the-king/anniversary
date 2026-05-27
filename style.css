@@ -100,34 +100,36 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Enhanced Final Card Styling */
 .final-card {
-    border-color: rgba(245, 194, 231, 0.2);
-    position: relative;
+    max-width: 450px;
+    padding: 40px;
+    border-color: rgba(245, 194, 231, 0.4);
 }
 
-/* Decorative items */
-.icon-bounce {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    animation: floating 2.5s infinite ease-in-out;
+.letter-content {
+    max-height: 300px; /* Limits height so it doesn't break the layout */
+    overflow-y: auto; /* Adds a subtle scroll if the text gets even longer */
+    padding-right: 10px;
+    text-align: left;
 }
 
-h1 {
-    font-size: 1.9rem;
-    color: #f5c2e7; 
-    margin-bottom: 15px;
+/* Custom scrollbar for the letter to keep it aesthetic */
+.letter-content::-webkit-scrollbar {
+    width: 4px;
 }
-
-p {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #a6adc8;
-    margin-bottom: 20px;
+.letter-content::-webkit-scrollbar-thumb {
+    background: rgba(245, 194, 231, 0.3);
+    border-radius: 10px;
 }
 
 .letter-text {
-    text-align: left;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #cdd6f4;
+    margin-bottom: 20px;
     font-style: italic;
+    font-family: 'Georgia', serif; /* Gives it a classic 'letter' feel */
 }
 
 .timeline-badge {
